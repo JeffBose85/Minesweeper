@@ -1,0 +1,164 @@
+@keyframes fadein {
+    from {opacity: 0%;}
+    to {opacity: 100%;}
+    
+}
+
+:root {
+    --gameWidth: 0;
+    --gameHeight: 0;
+    --tileSize: 50px;
+    --fontSize: 41pt;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+body {
+    margin:0;
+    color:white;
+    background-color: rgb(15, 15, 15);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#gamearea {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: absolute;
+    top:min(5vw, 50%);
+    left:50%;
+    width:var(--gameWidth);
+    transform: translate(-50%, 0);
+    height:var(--gameHeight);
+
+    background-color: rgb(43, 43, 43);
+    padding:5px;
+    
+    animation: fadein 2s forwards;
+    animation-delay: .2s;
+
+    opacity: 0%;
+}
+
+#gamepopup {
+    position: fixed;
+    transform: translate(-50%,-50%);
+    left:50%;
+    top:50%;
+    z-index: 100;
+    width:500px;
+    height: 250px;
+    background-color: rgba(0, 0, 0, 80%);
+    border:3px solid rgb(68, 68, 68);
+}
+
+#gamepopuptext {
+    font-size:60px;
+    margin:0;
+    margin-top:1vw;
+    text-align: center;
+}
+
+#btnplayagain {
+    position: absolute;
+    bottom: 20px;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width:20%;
+    height:20%;
+    margin:auto;
+    background-color: rgba(238, 238, 238, 70%);
+    border:none;
+
+    border-radius: 25px;
+}
+
+#actions {
+    position: fixed;
+    right:10px;
+    bottom:10px;
+}
+
+.settings {
+    position: fixed;
+    left:10px;
+    top:10px;
+    z-index: 100;
+}
+
+#actions > button {
+    width:75px;
+    height:75px;
+    border-radius: 1vw;
+}
+
+.flagactive {
+    background-color: #b80000;
+    color:white;
+}
+
+.tile {
+    position: relative;
+    box-sizing: border-box;
+    width:var(--tileSize);
+    height:var(--tileSize);
+    background-color: #b1b1b1;
+    border:1px solid rgb(124, 124, 124);
+    text-align: center;
+
+    user-select: none;
+}
+
+.tile > p {
+    position: absolute;
+    margin:0;
+    transform: translate(-50%, -50%);
+    left:50%;
+    top:50%;
+    text-align: center;
+    font-size: var(--fontSize);
+    font-weight: 900;
+}
+
+
+.unrevealed {
+    border: .3vw outset #e0e0e0;
+}
+
+.unrevealed:hover {
+    background-color: #adadad;
+}
+
+.unrevealed:active {
+    border: .2vw outset #e0e0e0;
+}
+
+
+.flagged {
+    background-image: url(../images/flag.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.flagged:hover {
+    background-image: url(../images/hoverflag.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* .unrevealed:hover.flagged:hover {
+    background-color: none;
+} */
+
+.mine {
+    background-image: url(../images/mine.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.error {
+    background-color: red;
+    color:white;
+}

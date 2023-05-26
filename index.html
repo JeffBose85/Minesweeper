@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/styles.css" />
+		<script src="js/controls.js"></script>
+		<script src="js/Tile.js"></script>
+        
+		<title>Minesweeper</title>
+	
+	</head>
+
+	<body onload="StartUp()">
+
+        <div id="gamepopup">
+            <p id="gamepopuptext"></p>
+            <button id="btnplayagain" onclick="PlayAgain()">Play Again?</button>
+        </div>
+
+        <div class="settings">
+            <button onclick="ZoomControl('zoomin')">+</button>
+            <button onclick="ZoomControl('zoomout')">-</button>
+            <button onclick="ZoomControl('reset')">-/-</button><br><br>
+
+            <div id="playsettings">
+                <label>Width:</label>
+                <input type="number" class="disableable" id="txtWidth" max="25" min="10" value="25" onchange="CheckValues(this, this.value)"><br>
+                <label>Height:</label>
+                <input type="number" class="disableable" id="txtHeight" max="25" min="10" value="25" onchange="CheckValues(this, this.value)"><br>
+                <label>Difficulty:</label>
+                <input type="range" class="disableable" id="difficulty" max="3" min="1" value="1" onchange="CheckValues(this, this.value)"><br>
+                <div id="play"><button class="disableable" id="btnPlay" onclick="StartGame()">Play</button></div>
+            </div>
+        </div>
+            <div id="gamearea">
+            </div>
+
+        <div id="actions">
+            <div><button onclick="PrintTiles()">Debug Tiles</button></div>
+            <div><button onclick="CheckCheckWin()">Check Win</button></div>
+            <div><button onclick="Win()">Force Win</button></div>
+            <button id="flag" onclick="SetFlagging()">Flag (Space)</button>
+            <button id="btnReveal" onclick="Loss()">Reveal (R)</button>
+        </div>
+
+	</body>
+</html>
