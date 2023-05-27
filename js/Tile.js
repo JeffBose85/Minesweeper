@@ -27,11 +27,9 @@ class Tile {
     ToggleFlagged() {
         this.flagged = !(this.flagged);
         if(this.mine && this.flagged) {
-            console.log("Revealed Mine");
             this.revealed = true;
         }
         if(this.mine && !this.flagged) {
-            console.log("Unrevealed Mine");
             this.revealed = false;
         }
     }

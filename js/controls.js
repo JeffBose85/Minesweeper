@@ -88,16 +88,18 @@ function ZoomControl(control) {
 var keyDown = false;
 
 addEventListener('keydown', function(e) {
-    if(e.code === "Space" && e.target === document.body) {
-        e.preventDefault();
-      }
-    if(e.code === "Space" && !(keyDown)) {
-        keyDown = true;
-        SetFlagging();
-    }
-    if(e.code === "KeyR" && !(keyDown)) {
-        keyDown = true;
-        Loss();
+    if(!gameOver) {
+        if(e.code === "Space" && e.target === document.body) {
+            e.preventDefault();
+          }
+        if(e.code === "Space" && !(keyDown)) {
+            keyDown = true;
+            SetFlagging();
+        }
+        if(e.code === "KeyR" && !(keyDown)) {
+            keyDown = true;
+            Loss();
+        }
     }
 })
 
@@ -130,6 +132,9 @@ function ReadStyle() {
 
 function StartGame() {
     gameOver = false;
+    if(flagging) {
+        SetFlagging();
+    }
     Toggle(false, playsettingsdiv);
     Toggle(false, popupdiv);
     Toggle(true, actiondiv);
@@ -163,22 +168,23 @@ function CreateTiles(x,y) {
 }
 
 function SetMines(width, height) {
-    const difficulty = document.getElementById('difficulty').value;
+    if (!gameOver) {
+        const difficulty = document.getElementById('difficulty').value;
     
-    const mineCount = Math.floor((tileCount / 9) * (difficulty / 1.1));
+        const mineCount = Math.floor(((tileCount / 6) * (difficulty / 1.1)) - ((difficulty * difficulty) * 5));
 
-    for (let i = 0; i < mineCount; i++) {
-        var x = Math.floor(Math.random() * width) + 1;
-        var y = Math.floor(Math.random() * height) + 1;
+        for (let i = 0; i < mineCount; i++) {
+            var x = Math.floor(Math.random() * width) + 1;
+            var y = Math.floor(Math.random() * height) + 1;
 
-        var id = (x) + "_" + (y);
-        if(tiles[id].mine) {
-            i--;
-        } else {
-            tiles[id].mine = true;
+            var id = (x) + "_" + (y);
+            if(tiles[id].mine) {
+                i--;
+            } else {
+                tiles[id].mine = true;
+            }
         }
     }
-
 }
 
 function DrawTile(key) {
