@@ -34,7 +34,7 @@ body {
     transform: translate(-50%, 0);
     height:var(--gameHeight);
 
-    background-color: rgb(43, 43, 43);
+    background-color: #2b2b2b;
     padding:5px;
     
     animation: fadein 2s forwards;
@@ -89,6 +89,37 @@ body {
     z-index: 100;
 }
 
+.zoombuttons {
+    width:40px;
+    height:40px;
+    border-radius: 100%;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #e0e0e0;
+    border:none;
+}
+
+#playsettings {
+    background-color: #2b2b2b;
+    padding:10px;
+    border-radius: 15px;
+}
+
+#playsettings > * {
+    margin: 5px 0 5px 0;
+}
+
+#btnPlay {
+    width:100%;
+    height:30px;
+    border-radius: 15px;
+    background-color: #e0e0e0;
+}
+
+.settings > button:hover {
+    background-color: #c4c2c2;
+}
+
 #actions > button {
     width:75px;
     height:75px;
@@ -96,6 +127,11 @@ body {
 }
 
 .flagactive {
+    background-color: #b80000;
+    color:white;
+}
+
+#flag:hover {
     background-color: #b80000;
     color:white;
 }
@@ -123,7 +159,6 @@ body {
     font-weight: 900;
 }
 
-
 .unrevealed {
     border: .3vw outset #e0e0e0;
 }
@@ -136,7 +171,6 @@ body {
     border: .2vw outset #e0e0e0;
 }
 
-
 .flagged {
     background-image: url(../images/flag.png);
     background-repeat: no-repeat;
@@ -147,10 +181,6 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
-/* .unrevealed:hover.flagged:hover {
-    background-color: none;
-} */
 
 .mine {
     background-image: url(../images/mine.png);

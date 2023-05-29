@@ -36,7 +36,7 @@ function CheckValues(element, value) {
         element.classList.add("error");
     } else {
         if(document.getElementById('btnPlay') === null) {
-            var newE = document.getElementById('play').appendChild(document.createElement('button'));
+            var newE = document.getElementById('playsettings').appendChild(document.createElement('button'));
             newE.setAttribute('id','btnPlay');
             newE.setAttribute('onclick','StartGame()');
             newE.innerHTML = "Play";
